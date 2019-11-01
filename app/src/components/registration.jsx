@@ -15,6 +15,7 @@ export default class Registration extends Component {
     this.state = {
       email: '',
       password: '',
+      phone: '',
       passwordConfirmation: '',
       error: null,
       snackBarOpen: false,
@@ -29,20 +30,20 @@ export default class Registration extends Component {
   handleRegisterUser = event => {
     event.preventDefault()
     const { authenticate } = this.props
-    const { email, password, passwordConfirmation } = this.state
+    const { email, password, passwordConfirmation, phone } = this.state
 
     if (password !== passwordConfirmation) {
       return this.setState({ error: 'Please make sure your passwords match' })
     }
 
-    app.service('users').create({ email, password })
+    app.service('users').create({ email, password, phone })
       .then(() => authenticate({ strategy: 'local', email, password }))
       .catch(() => this.setState({ snackBarOpen: true, snackBarMessage: 'Sorry, this email has already been used' }))
 
   }
 
   render() {
-    const { email, password, passwordConfirmation, error, snackBarOpen, snackBarMessage } = this.state
+    const { email, password, passwordConfirmation, error, snackBarOpen, snackBarMessage, phone } = this.state
 
     return (
       <div style={{ padding: '0 20px' }}>
@@ -89,6 +90,18 @@ export default class Registration extends Component {
           variant="outlined"
           value={passwordConfirmation}
         />
+          <TextField
+              error={error === "phone"}
+              fullWidth
+              required
+              id="phone"
+              label="Phone Number"
+              margin="normal"
+              onChange={(event) => this.handleRegistrationChange('phone', event.target.value)}
+              type="phone"
+              variant="outlined"
+              value={phone}
+          />
         <div style={{ textAlign: 'center', marginBottom: 20, marginTop: 16 }}>
           <Button variant="contained" color="secondary" onClick={this.handleRegisterUser} style={{ width: '100%' }}>
             Sign Up

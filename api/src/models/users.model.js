@@ -19,7 +19,12 @@ module.exports = function (app) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true
+    },
   }, {
     hooks: {
       beforeCount(options) {

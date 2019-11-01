@@ -4,6 +4,9 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import Paper from '@material-ui/core/Paper'
 import Snackbar from '@material-ui/core/Snackbar'
 
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 import Login from 'FRS/components/login.jsx'
@@ -18,6 +21,8 @@ export default class App extends Component {
       isAuthenticated: false,
       isLoading: true,
       snackBarOpen: false,
+      phone: '',
+      body: '',
       snackBarMessage: null
     }
   }
@@ -33,7 +38,18 @@ export default class App extends Component {
       )
   }
 
+  handleSMSChange = (field, value) => this.setState({ [field]: value })
+
   handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
+
+  handleSMS = event => {
+      event.preventDefault()
+      const { body, phone } = this.state
+
+      this.setState({ phone: '', body: ''})
+
+      app.service('messages').create({ phone, body })
+  }
 
   componentDidMount() {
     return app.authentication.getAccessToken()
@@ -48,7 +64,7 @@ export default class App extends Component {
 
   render() {
     const { onMobile } = this.props
-    const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage } = this.state
+    const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage, body, phone } = this.state
 
     const textStyle = {
       fontFamily: 'Roboto, Arial, Helvetica, sans-serif',
@@ -102,7 +118,34 @@ export default class App extends Component {
               </div>
             : isAuthenticated
               ? <div style={{ ...textStyle, margin: '60px auto', textAlign: 'center' }}>
-                  Congrats, you're now logged in!
+                  Send a text message!
+                      <TextField
+                          fullWidth
+                          required
+                          id="phone"
+                          label="Phone Number"
+                          margin="normal"
+                          onChange={(event) => this.handleSMSChange('phone', event.target.value)}
+                          type="phone"
+                          variant="outlined"
+                          value={phone}
+                      />
+                      <TextField
+                          fullWidth
+                          required
+                          id="body"
+                          label="Message"
+                          margin="normal"
+                          onChange={(event) => this.handleSMSChange('body', event.target.value)}
+                          type="body"
+                          variant="outlined"
+                          value={body}
+                      />
+                      <div style={{ textAlign: 'center', marginBottom: 20, marginTop: 16 }}>
+                          <Button variant="contained" color="secondary" onClick={this.handleSMS} style={{ width: '100%' }}>
+                              Send SMS
+                          </Button>
+                      </div>
                 </div>
               : <div>
                   <div style={{ ...textStyle, fontSize: 16, padding: '0 20px' }}>

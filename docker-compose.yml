@@ -37,6 +37,8 @@ services:
       - POSTGRES_USER=project-name
     env_file:
       - ./api/secrets/POSTGRES_PASSWORD
+      - ./api/secrets/AWS_ACCESS_KEY_ID
+      - ./api/secrets/AWS_SECRET_KEY
     ports:
     - "$API_PORT:8000"
     - "9230:9229"
