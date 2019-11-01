@@ -11,7 +11,8 @@ import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 import Login from 'FRS/components/login.jsx'
 import Registration from 'FRS/components/registration.jsx'
-
+import SendSMS from 'FRS/components/SendSMS.jsx'
+import SendEmail from 'FRS/components/SendEmail.jsx'
 
 @responsive
 export default class App extends Component {
@@ -20,10 +21,7 @@ export default class App extends Component {
     this.state = {
       isAuthenticated: false,
       isLoading: true,
-      buttonOff: false,
       snackBarOpen: false,
-      phone: '',
-      body: '',
       snackBarMessage: null
     }
   }
@@ -39,34 +37,11 @@ export default class App extends Component {
       )
   }
 
-  handleSMSChange = (field, value) => this.setState({ [field]: value })
-
   handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
 
   handleLogOut = () => {
       app.logout()
           .then(() => window.location.reload())
-  }
-
-  handleSMS = event => {
-      event.preventDefault()
-      const { body, phone } = this.state
-      this.setState({buttonOff: true})
-
-      if(body && phone){
-          this.setState({ phone: '', body: ''})
-
-          app.service('messages').create({ phone, body })
-              .then(() => {
-                  this.setState({ buttonOff: false })
-              })
-      } else {
-          this.setState({
-              snackBarOpen: true,
-              snackBarMessage: 'Please enter a valid message and/or body.',
-              buttonOff: false,
-          })
-      }
   }
 
   componentDidMount() {
@@ -82,7 +57,7 @@ export default class App extends Component {
 
   render() {
     const { onMobile } = this.props
-    const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage, body, phone, buttonOff } = this.state
+    const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage } = this.state
 
     const textStyle = {
       fontFamily: 'Roboto, Arial, Helvetica, sans-serif',
@@ -109,6 +84,13 @@ export default class App extends Component {
           onClose={this.handleCloseSnackBar}
           message={snackBarMessage}
         />
+          {isAuthenticated ?
+              <div style={{ textAlign: 'center', position: 'absolute', top: 10, left: 10 }}>
+                  <Button variant="contained" color="secondary" onClick={this.handleLogOut} >
+                      Logout
+                  </Button>
+              </div>
+              : null}
         <Paper
           elevation={onMobile ? 0 : 3}
           style={{
@@ -136,45 +118,8 @@ export default class App extends Component {
               </div>
             : isAuthenticated
               ? <div style={{ ...textStyle, margin: '60px auto', textAlign: 'center', position: 'relative' }}>
-                  Send a text message!
-                      <TextField
-                          fullWidth
-                          required
-                          id="phone"
-                          label="Phone Number"
-                          margin="normal"
-                          onChange={(event) => this.handleSMSChange('phone', event.target.value)}
-                          type="phone"
-                          variant="outlined"
-                          value={phone}
-                      />
-                      <TextField
-                          fullWidth
-                          required
-                          id="body"
-                          label="Message"
-                          margin="normal"
-                          onChange={(event) => this.handleSMSChange('body', event.target.value)}
-                          type="body"
-                          variant="outlined"
-                          value={body}
-                      />
-                      <div style={{ textAlign: 'center', marginBottom: 20, marginTop: 16 }}>
-                          <Button
-                              disabled={ !!buttonOff }
-                              variant="contained"
-                              color="secondary"
-                              onClick={this.handleSMS}
-                              style={{ width: '100%' }}>
-                              Send SMS
-                          </Button>
-                      </div>
-
-                      <div style={{ textAlign: 'center', marginBottom: 20, marginTop: 16 }}>
-                          <Button variant="contained" color="secondary" onClick={this.handleLogOut} style={{ width: '100%' }}>
-                              Logout
-                          </Button>
-                      </div>
+                      <SendSMS />
+                      <SendEmail />
                 </div>
               : <div>
                   <div style={{ ...textStyle, fontSize: 16, padding: '0 20px' }}>
