@@ -20,6 +20,7 @@ export default class App extends Component {
     this.state = {
       isAuthenticated: false,
       isLoading: true,
+      buttonOff: false,
       snackBarOpen: false,
       phone: '',
       body: '',
@@ -42,13 +43,30 @@ export default class App extends Component {
 
   handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
 
+  handleLogOut = () => {
+      app.logout()
+          .then(() => window.location.reload())
+  }
+
   handleSMS = event => {
       event.preventDefault()
       const { body, phone } = this.state
+      this.setState({buttonOff: true})
 
-      this.setState({ phone: '', body: ''})
+      if(body && phone){
+          this.setState({ phone: '', body: ''})
 
-      app.service('messages').create({ phone, body })
+          app.service('messages').create({ phone, body })
+              .then(() => {
+                  this.setState({ buttonOff: false })
+              })
+      } else {
+          this.setState({
+              snackBarOpen: true,
+              snackBarMessage: 'Please enter a valid message and/or body.',
+              buttonOff: false,
+          })
+      }
   }
 
   componentDidMount() {
@@ -64,7 +82,7 @@ export default class App extends Component {
 
   render() {
     const { onMobile } = this.props
-    const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage, body, phone } = this.state
+    const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage, body, phone, buttonOff } = this.state
 
     const textStyle = {
       fontFamily: 'Roboto, Arial, Helvetica, sans-serif',
@@ -117,7 +135,7 @@ export default class App extends Component {
                 <CircularProgress />
               </div>
             : isAuthenticated
-              ? <div style={{ ...textStyle, margin: '60px auto', textAlign: 'center' }}>
+              ? <div style={{ ...textStyle, margin: '60px auto', textAlign: 'center', position: 'relative' }}>
                   Send a text message!
                       <TextField
                           fullWidth
@@ -142,8 +160,19 @@ export default class App extends Component {
                           value={body}
                       />
                       <div style={{ textAlign: 'center', marginBottom: 20, marginTop: 16 }}>
-                          <Button variant="contained" color="secondary" onClick={this.handleSMS} style={{ width: '100%' }}>
+                          <Button
+                              disabled={ !!buttonOff }
+                              variant="contained"
+                              color="secondary"
+                              onClick={this.handleSMS}
+                              style={{ width: '100%' }}>
                               Send SMS
+                          </Button>
+                      </div>
+
+                      <div style={{ textAlign: 'center', marginBottom: 20, marginTop: 16 }}>
+                          <Button variant="contained" color="secondary" onClick={this.handleLogOut} style={{ width: '100%' }}>
+                              Logout
                           </Button>
                       </div>
                 </div>
