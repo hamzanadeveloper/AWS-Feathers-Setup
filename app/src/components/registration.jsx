@@ -4,8 +4,6 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Snackbar from '@material-ui/core/Snackbar'
 
-import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory, useLocation } from "react-router-dom";
-
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 
