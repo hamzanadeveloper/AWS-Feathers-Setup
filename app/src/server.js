@@ -1,6 +1,11 @@
 import path from 'path'
 import fs from 'fs'
+
+import React from 'react'
 import express from '@feathersjs/express'
+import { renderToString } from 'react-dom/server'
+import { Resolver } from 'react-resolver'
+import App from 'FRS/App.jsx'
 
 import webpackConfig from '../webpack.config.js'
 
@@ -31,7 +36,19 @@ app.use(express.static(distributionPath))
 // Hack to avoid returning SPA on phantom request
 app.get('/undefined', (req, res) => res.status(404).end('Not found'))
 
-app.get('/*', (req, res) => res.send(htmlTemplate({ app: '' })))
+app.get('/*', (req, res) => {
+  // res.send(htmlTemplate({ app: '' }))
+
+  Resolver.resolve(() => <App />)
+    .then(({ Resolved, data}) => {
+
+      const html = htmlTemplate({
+        app: renderToString(<Resolved />),
+      })
+
+      res.send(html)
+  })
+})
 
 // Log errors
 app.use(function (err, req, res, next) {
