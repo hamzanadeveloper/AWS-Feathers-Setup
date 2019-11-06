@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Snackbar from '@material-ui/core/Snackbar'
 
+import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory, useLocation } from "react-router-dom";
+
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 
@@ -103,9 +105,9 @@ export default class Registration extends Component {
               value={phone}
           />
         <div style={{ textAlign: 'center', marginBottom: 20, marginTop: 16 }}>
-          <Button variant="contained" color="secondary" onClick={this.handleRegisterUser} style={{ width: '100%' }}>
-            Sign Up
-          </Button>
+            <Button variant="contained" color="secondary" onClick={this.handleRegisterUser} style={{ width: '100%' }}>
+                Sign Up
+            </Button>
         </div>
       </div>
     )
