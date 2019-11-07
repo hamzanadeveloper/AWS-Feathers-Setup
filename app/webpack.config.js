@@ -128,7 +128,7 @@ module.exports = function (opts) {
   */
 
   const config = {
-    mode: process.env.NODE_ENV,
+    mode: 'production', // CHANGE
     entry: IS_BROWSER ? './src/client.js' : './src/server.js',
     devtool: env.isProduction
         ? 'cheap-module-source-map'
