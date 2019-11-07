@@ -128,11 +128,11 @@ module.exports = function (opts) {
   */
 
   const config = {
-    mode: 'production', // CHANGE
+    mode: process.env.NODE_ENV, // CHANGE
     entry: IS_BROWSER ? './src/client.js' : './src/server.js',
-    devtool: env.isProduction
-        ? 'cheap-module-source-map'
-        : 'cheap-module-eval-source-map',
+    devtool: env.isDevelopment
+        ? 'cheap-module-eval-source-map'
+        : 'cheap-module-source-map',
     output: {
       path: IS_BROWSER ? env.STATIC_ROOT : path.resolve(__dirname, 'bin'),
       publicPath: PUBLIC_PATH,
