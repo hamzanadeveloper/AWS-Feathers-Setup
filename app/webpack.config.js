@@ -139,6 +139,25 @@ module.exports = function (opts) {
       filename: IS_BROWSER ? '[name].[chunkhash].js' : 'www',
       libraryTarget: IS_BROWSER ? 'var' : 'commonjs2',
     },
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        chunks: 'all',
+        maxInitialRequests: 4,
+        minSize: 0,
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name(module) {
+              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+              // npm package names are URL-safe, but some servers don't like @ symbols
+              return `npm.${packageName.replace('@', '')}`;
+            },
+          },
+        },
+      },
+    },
     target: IS_BROWSER ? 'web' : 'node',
     resolve: {
       alias: {
