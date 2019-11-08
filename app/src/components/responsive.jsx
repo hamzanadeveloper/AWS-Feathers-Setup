@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import includes from 'lodash/includes'
 
-import withWidth from '@material-ui/core/withWidth'
+import { withWidth } from "@material-ui/core";
 
 export default (Renderable) => {
 

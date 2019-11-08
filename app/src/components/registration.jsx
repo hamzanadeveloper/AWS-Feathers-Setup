@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import Snackbar from '@material-ui/core/Snackbar'
+import { Button, TextField, Snackbar } from "@material-ui/core";
 
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'

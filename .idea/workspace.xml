@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d62ea07-f1cb-4a15-833e-94585b7ee24b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/SendEmail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/SendEmail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/SendSMS.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/SendSMS.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/registration.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/responsive.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/responsive.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/LandingPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/LandingPage.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,8 +25,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+            <state relative-caret-position="330">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -27,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="330">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -45,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="845">
-              <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+            <state relative-caret-position="170">
+              <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -57,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/static/_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+            <state relative-caret-position="345">
+              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -72,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+            <state relative-caret-position="390">
+              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -167,18 +177,12 @@
         <option value="$PROJECT_DIR$/api/src/services/index.js" />
         <option value="$PROJECT_DIR$/api/src/services/notifications/messages.class.js" />
         <option value="$PROJECT_DIR$/api/src/services/notifications/messages.service.js" />
-        <option value="$PROJECT_DIR$/app/src/components/SendSMS.jsx" />
-        <option value="$PROJECT_DIR$/app/src/components/SendEmail.jsx" />
         <option value="$PROJECT_DIR$/api/src/models/notifications.model.js" />
         <option value="$PROJECT_DIR$/api/src/services/notifications/notifications.hooks.js" />
         <option value="$PROJECT_DIR$/app/src/App.jsx" />
         <option value="$PROJECT_DIR$/api/src/services/notifications/ses_sendemail.js" />
         <option value="$PROJECT_DIR$/api/src/services/notifications/sns_publishsms.js" />
-        <option value="$PROJECT_DIR$/app/src/pages/LandingPage.jsx" />
         <option value="$PROJECT_DIR$/app/src/server.js" />
-        <option value="$PROJECT_DIR$/app/src/components/login.jsx" />
-        <option value="$PROJECT_DIR$/app/src/components/registration.jsx" />
-        <option value="$PROJECT_DIR$/app/src/pages/Home.jsx" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/.babelrc" />
         <option value="$PROJECT_DIR$/app/package.json" />
@@ -186,6 +190,14 @@
         <option value="$PROJECT_DIR$/api/secrets/AWS_SECRET_KEY" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/app/webpack.config.js" />
+        <option value="$PROJECT_DIR$/app/src/pages/Home.jsx" />
+        <option value="$PROJECT_DIR$/app/src/pages/LandingPage.jsx" />
+        <option value="$PROJECT_DIR$/app/src/components/registration.jsx" />
+        <option value="$PROJECT_DIR$/app/src/components/login.jsx" />
+        <option value="$PROJECT_DIR$/app/src/components/responsive.jsx" />
+        <option value="$PROJECT_DIR$/app/src/client.js" />
+        <option value="$PROJECT_DIR$/app/src/components/SendEmail.jsx" />
+        <option value="$PROJECT_DIR$/app/src/components/SendSMS.jsx" />
       </list>
     </option>
   </component>
@@ -278,11 +290,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46418000" />
+    <option name="totallyTimeSpent" value="46613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13902053" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -588,15 +599,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -668,8 +682,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+        <state relative-caret-position="390">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -689,8 +703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="845">
-          <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+        <state relative-caret-position="170">
+          <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
         </state>
       </provider>
     </entry>

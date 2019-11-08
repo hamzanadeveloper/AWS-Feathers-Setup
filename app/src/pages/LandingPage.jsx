@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import CircularProgress from '@material-ui/core/CircularProgress'
-import Paper from '@material-ui/core/Paper'
-import Snackbar from '@material-ui/core/Snackbar'
+import { Paper, CircularProgress, Snackbar} from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 
 import app from 'FRS/feathers-client.js'
