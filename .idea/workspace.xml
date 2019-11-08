@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d62ea07-f1cb-4a15-833e-94585b7ee24b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/SendEmail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/SendEmail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/SendSMS.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/SendSMS.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/registration.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/responsive.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/responsive.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/LandingPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/LandingPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2025">
-              <caret line="135" column="13" selection-end-line="180" />
+            <state relative-caret-position="873">
+              <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
             </state>
           </provider>
         </entry>
@@ -45,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/static/_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="255">
               <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
             </state>
           </provider>
@@ -82,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/app/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="300" selection-start-line="11" selection-start-column="300" selection-end-line="11" selection-end-column="300" />
+              <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -195,7 +187,6 @@
         <option value="$PROJECT_DIR$/api/secrets/AWS_ACCESS_KEY_ID" />
         <option value="$PROJECT_DIR$/api/secrets/AWS_SECRET_KEY" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/app/webpack.config.js" />
         <option value="$PROJECT_DIR$/app/src/pages/Home.jsx" />
         <option value="$PROJECT_DIR$/app/src/pages/LandingPage.jsx" />
         <option value="$PROJECT_DIR$/app/src/components/registration.jsx" />
@@ -204,6 +195,7 @@
         <option value="$PROJECT_DIR$/app/src/client.js" />
         <option value="$PROJECT_DIR$/app/src/components/SendEmail.jsx" />
         <option value="$PROJECT_DIR$/app/src/components/SendSMS.jsx" />
+        <option value="$PROJECT_DIR$/app/webpack.config.js" />
         <option value="$PROJECT_DIR$/app/package.json" />
       </list>
     </option>
@@ -291,7 +283,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46878000" />
+    <option name="totallyTimeSpent" value="46890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -698,15 +690,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="135" column="13" selection-end-line="180" />
+        <state relative-caret-position="873">
+          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="300" selection-start-line="11" selection-start-column="300" selection-end-line="11" selection-end-column="300" />
+          <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
         </state>
       </provider>
     </entry>
