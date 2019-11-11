@@ -117,3 +117,4 @@ data/
 .editorconfig
 /static
 /app/static
+/app/package-lock.json
