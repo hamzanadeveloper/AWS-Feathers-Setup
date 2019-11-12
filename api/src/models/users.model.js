@@ -23,7 +23,6 @@ module.exports = function (app) {
     phone: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: true
     },
   }, {
     hooks: {
