@@ -8,8 +8,8 @@ const isSubscriptionConfirmationRequest = (params) => {
 }
 
 exports.Amazon = class Amazon extends Service {
-  create(context){
-    console.log(context)
+  create(params){
+    console.log(params)
 
     // if(isSubscriptionConfirmationRequest(params)){
     //   console.log("This is a subscription confirmation request.")
