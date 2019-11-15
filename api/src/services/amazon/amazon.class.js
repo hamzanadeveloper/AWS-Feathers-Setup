@@ -8,23 +8,22 @@ const isSubscriptionConfirmationRequest = (params) => {
 }
 
 exports.Amazon = class Amazon extends Service {
-  create(data, params){
-    console.log(data)
-    console.log(params)
+  create(context){
+    console.log(context)
 
-    if(isSubscriptionConfirmationRequest(params)){
-      console.log("This is a subscription confirmation request.")
-
-      request.get(data.SubscribeURL, (err, res, body) => {
-        console.log("[INFO] GET on SNS subscription URL: " + data.SubscribeURL)
-
-        if(err){
-          reject(new errors.BadRequest("GET on subscription URL failed"))
-        } else {
-            console.log("[INFO] SNS subscription confirmed")
-        }
-      })
-
-    }
+    // if(isSubscriptionConfirmationRequest(params)){
+    //   console.log("This is a subscription confirmation request.")
+    //
+    //   request.get(data.SubscribeURL, (err, res, body) => {
+    //     console.log("[INFO] GET on SNS subscription URL: " + data.SubscribeURL)
+    //
+    //     if(err){
+    //       reject(new errors.BadRequest("GET on subscription URL failed"))
+    //     } else {
+    //         console.log("[INFO] SNS subscription confirmed")
+    //     }
+    //   })
+    //
+    // }
   }
 };
