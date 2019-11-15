@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d62ea07-f1cb-4a15-833e-94585b7ee24b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/services/amazon/amazon.class.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/amazon/amazon.class.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/services/amazon/amazon.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/amazon/amazon.service.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,20 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/src/services/amazon/amazon.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="105">
+              <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/services/amazon/amazon.class.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="30">
+              <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -137,12 +140,12 @@
         <option value="$PROJECT_DIR$/api/src/services/Amazon/amazon.hooks.js" />
         <option value="$PROJECT_DIR$/api/src/services/Amazon/amazon.service.js" />
         <option value="$PROJECT_DIR$/api/src/services/index.js" />
-        <option value="$PROJECT_DIR$/api/src/services/amazon/amazon.service.js" />
         <option value="$PROJECT_DIR$/api/src/models/amazon.model.js" />
         <option value="$PROJECT_DIR$/api/src/services/notifications/sns_publishsms.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/api/src/models/notifications.model.js" />
         <option value="$PROJECT_DIR$/api/src/services/amazon/amazon.hooks.js" />
+        <option value="$PROJECT_DIR$/api/src/services/amazon/amazon.service.js" />
         <option value="$PROJECT_DIR$/api/src/services/amazon/amazon.class.js" />
       </list>
     </option>
@@ -283,12 +286,12 @@
       <workItem from="1572878341260" duration="10722000" />
       <workItem from="1573051389848" duration="1941000" />
       <workItem from="1573570558462" duration="511000" />
-      <workItem from="1573826750567" duration="5962000" />
+      <workItem from="1573826750567" duration="6461000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71431000" />
+    <option name="totallyTimeSpent" value="71930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -621,17 +624,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/services/amazon/amazon.service.js">
+    <entry file="file://$PROJECT_DIR$/api/src/services/amazon/amazon.class.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="30">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/services/amazon/amazon.class.js">
+    <entry file="file://$PROJECT_DIR$/api/src/services/amazon/amazon.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="105">
+          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
