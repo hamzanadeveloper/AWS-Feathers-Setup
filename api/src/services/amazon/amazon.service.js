@@ -13,6 +13,8 @@ module.exports = function (app) {
     paginate
   };
 
+  //Body of the post comes in text/plain, which we can't read as an object,
+  //So we have to parse it to json.
   app.use(bodyParser.json({type: "text/plain"}))
   // Initialize our service with any options it requires
   app.use('/amazon', new Amazon(options, app));
