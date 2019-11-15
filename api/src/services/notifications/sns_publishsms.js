@@ -13,7 +13,7 @@ module.exports = function (phone, use_message) {
     + "using the AWS SDK for JavaScript in Node.js. Reply STOP to "
     + "opt out.";
 
-  const applicationId = your-project-id;
+  const applicationId = "bf53f587623149b5b39d295f1d60d68e";
 
   const messageType = "TRANSACTIONAL";
 
@@ -48,19 +48,3 @@ module.exports = function (phone, use_message) {
     }
   });
 }
-
-// const params = {
-//   Message: message,
-//   PhoneNumber: phone,
-// };
-//
-// const publishTextPromise = new AWS.SNS().publish(params).promise();
-//
-// return publishTextPromise.then(
-//   function(data) {
-//       console.log("MessageID is " + data.MessageId);
-//       console.log(data)
-//   }).catch(
-//   function(err) {
-//       console.error(err, err.stack);
-//   });
