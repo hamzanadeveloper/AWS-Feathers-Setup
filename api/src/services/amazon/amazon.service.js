@@ -1,6 +1,6 @@
 // Initializes the `notifications` service on path `/notifications`
 const { Amazon } = require('./amazon.class');
-// const bodyParser = require("body-parser")
+const bodyParser = require("body-parser")
 const createModel = require('../../models/amazon.model');
 const hooks = require('./amazon.hooks');
 
@@ -15,7 +15,7 @@ module.exports = function (app) {
 
   //Body of the post comes in text/plain, which we can't read as an object,
   //So we have to parse it to json.
-  // app.use(bodyParser.json({type: "text/plain"}))
+  app.use(bodyParser.json({type: "text/plain"}))
 
   // Initialize our service with any options it requires
   app.use('/amazon', new Amazon(options, app));

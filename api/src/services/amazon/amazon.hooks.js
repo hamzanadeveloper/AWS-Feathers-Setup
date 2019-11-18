@@ -8,7 +8,7 @@ module.exports = {
     find: [],
     get: [],
     create: [
-      parseResponseContents(context),
+      parseResponseContents(),
     ],
     update: [],
     patch: [],
