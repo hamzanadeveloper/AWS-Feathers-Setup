@@ -9,10 +9,6 @@ module.exports = function (phone, use_message) {
   const destinationNumber = phone;
   const languageCode = "en-US";
 
-  const message = "This message was sent from Feathers-React-Starter "
-    + "using the AWS SDK for JavaScript in Node.js. Reply STOP to "
-    + "opt out.";
-
   const applicationId = "bf53f587623149b5b39d295f1d60d68e";
 
   const messageType = "TRANSACTIONAL";
@@ -31,7 +27,7 @@ module.exports = function (phone, use_message) {
       },
       MessageConfiguration: {
         SMSMessage: {
-          Body: message,
+          Body: use_message,
           MessageType: messageType,
           OriginationNumber: originationNumber,
         }
