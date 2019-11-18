@@ -1,8 +1,9 @@
 'use strict'
 
 module.exports  = () => function (context) {
-  console.log("Llama")
+  console.log("Alpaca")
   console.log(context.data.Message)
 
-  return Object.assign({}, context, ...context.data.Message)
+  const result = Object.assign({}, context, ...context.data.Message);
+  console.log(result)
 }

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d62ea07-f1cb-4a15-833e-94585b7ee24b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/services/amazon/parse-response-contents.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/amazon/parse-response-contents.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -257,12 +256,12 @@
       <workItem from="1572878341260" duration="10722000" />
       <workItem from="1573051389848" duration="1941000" />
       <workItem from="1573570558462" duration="511000" />
-      <workItem from="1573826750567" duration="9517000" />
+      <workItem from="1573826750567" duration="9918000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74986000" />
+    <option name="totallyTimeSpent" value="75387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
