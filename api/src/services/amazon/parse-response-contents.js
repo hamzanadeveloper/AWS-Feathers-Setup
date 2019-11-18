@@ -1,6 +1,6 @@
 'use strict'
 
 module.exports  = () => function (context) {
-  console.log(context)
-  console.log(context.data)
+  console.log("Llama")
+  console.log(context.data.Message)
 }
