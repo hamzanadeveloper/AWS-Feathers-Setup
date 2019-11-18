@@ -12,8 +12,8 @@ services:
     environment:
       - LOG_FORMAT=dev
       - NODE_ENV
-      - SPA_BASE_URL=http://localhost:$APP_PORT
-      - API_BASE_URL=http://localhost:$API_PORT
+      - SPA_BASE_URL=http://18.212.159.10:$APP_PORT
+      - API_BASE_URL=http://18.212.159.10:$API_PORT
       - INTERNAL_API_BASE_URL=http://api:8000
     ports:
       - "$APP_PORT:8000"

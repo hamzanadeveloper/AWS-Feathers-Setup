@@ -7,7 +7,6 @@ AWS.config.update({region: 'us-east-1', accessKeyId: process.env.AWS_ACCESS_KEY_
 module.exports = function (phone, use_message) {
   const originationNumber = "+15878096460";
   const destinationNumber = phone;
-  const languageCode = "en-US";
 
   const applicationId = "bf53f587623149b5b39d295f1d60d68e";
 
