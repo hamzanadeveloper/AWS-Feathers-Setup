@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
 import { Button, Snackbar, TextField } from "@material-ui/core";
-
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 
@@ -20,7 +18,7 @@ export default class SendSMS extends Component {
 
     handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
 
-    handleEmailChange = (field, value) => this.setState({ [field]: value })
+    handleChange = (field, value) => this.setState({ [field]: value })
 
     handleEmail = event => {
         event.preventDefault()
@@ -30,7 +28,7 @@ export default class SendSMS extends Component {
         if(email && email_body){
             this.setState({ email: '', email_body: ''})
 
-            app.service('notifications').create({ type:'email', address: email, body:email_body })
+            app.service('notifications').create({ type:'email', address: email, body: email_body })
                 .then(() => { this.setState({ emailButtonOff: false })})
                 .catch((err) => {
                     console.log(err)
@@ -65,7 +63,7 @@ export default class SendSMS extends Component {
                         id="email"
                         label="Email Address"
                         margin="normal"
-                        onChange={(event) => this.handleEmailChange('email', event.target.value)}
+                        onChange={(event) => this.handleChange('email', event.target.value)}
                         type="email"
                         variant="outlined"
                         value={email}
@@ -76,7 +74,7 @@ export default class SendSMS extends Component {
                         id="body"
                         label="Email Body"
                         margin="normal"
-                        onChange={(event) => this.handleEmailChange('email_body', event.target.value)}
+                        onChange={(event) => this.handleChange('email_body', event.target.value)}
                         type="email_body"
                         variant="outlined"
                         value={email_body}

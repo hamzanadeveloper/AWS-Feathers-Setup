@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-
 import { Button, TextField, Snackbar } from "@material-ui/core";
-
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
-
 
 @responsive
 export default class Registration extends Component {

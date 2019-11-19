@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { formatDistance } from 'date-fns'
 
-import { Button, Snackbar, TextField, Paper } from "@material-ui/core";
+import { Snackbar, Paper } from "@material-ui/core";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -23,18 +23,8 @@ export default class SendSMS extends Component {
     }
 
     componentDidMount() {
-        return app.service('notifications').find({
-            query: {
-                $limit: 4,
-                $sort: {
-                    createdAt: -1
-                }
-            }
-        })
-            .then(result =>{
-                console.log(result.data)
-                this.setState({messages: result.data})
-            })
+        return app.service('notifications').find({ query: { $limit: 4, $sort: { createdAt: -1 }}})
+            .then(result => this.setState({messages: result.data}))
     }
 
     handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
@@ -69,8 +59,7 @@ export default class SendSMS extends Component {
                                     </TableCell>
                                     <TableCell align="right"
                                                onClick={() => this.props.getPropsFromChild(message.address)}
-                                               style={{color: '#303f9f', cursor: 'pointer'}}
-                                    >{message.address}</TableCell>
+                                               style={{color: '#303f9f', cursor: 'pointer'}}>{message.address}</TableCell>
                                     <TableCell align="right">{formatDistance(new Date(message.createdAt), new Date())} ago</TableCell>
                                 </TableRow>
                             ))}

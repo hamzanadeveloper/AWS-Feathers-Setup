@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { formatDistance } from 'date-fns'
 
-import { Button, Snackbar, TextField, Paper } from "@material-ui/core";
+import { Snackbar, Paper } from "@material-ui/core";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -24,9 +24,7 @@ export default class SendSMS extends Component {
 
     componentDidMount() {
         return app.service('amazon').find({ query: { $limit: 4, $sort: { createdAt: -1 }}})
-            .then(result =>{
-                this.setState({responses: result.data})
-            })
+            .then(result => this.setState({ responses: result.data }))
     }
 
     handleCloseSnackBar = () => this.setState({ snackBarOpen: false })

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
 import { Button, Snackbar, TextField } from "@material-ui/core";
-
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 
@@ -24,7 +22,7 @@ export default class SendSMS extends Component {
 
     handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
 
-    handleSMSChange = (field, value) => this.setState({ [field]: value })
+    handleChange = (field, value) => this.setState({ [field]: value })
 
     handleSMS = event => {
         event.preventDefault()
@@ -68,7 +66,7 @@ export default class SendSMS extends Component {
                     id="phone"
                     label="Phone Number"
                     margin="normal"
-                    onChange={(event) => this.handleSMSChange('phone', event.target.value)}
+                    onChange={(event) => this.handleChange('phone', event.target.value)}
                     type="phone"
                     variant="outlined"
                     value={phone}
@@ -79,7 +77,7 @@ export default class SendSMS extends Component {
                     id="body"
                     label="Message"
                     margin="normal"
-                    onChange={(event) => this.handleSMSChange('body', event.target.value)}
+                    onChange={(event) => this.handleChange('body', event.target.value)}
                     type="body"
                     variant="outlined"
                     value={body}

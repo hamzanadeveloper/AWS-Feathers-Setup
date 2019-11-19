@@ -43,7 +43,7 @@ export default class LandingPage extends Component {
 
     handleLogOut = () => {
         app.logout()
-            .then(() => this.setState({redirect: true}))
+            .then(() => this.setState({ redirect: true }))
     }
 
 
@@ -54,7 +54,7 @@ export default class LandingPage extends Component {
                     return app.reAuthenticate()
                         .then(() => this.setState({ isAuthenticated: true }))
                         .then(() => this.setState({ isLoading: false }))
-                } else{
+                } else {
                     this.setState({ isAuthenticated: false})
                 }
             })

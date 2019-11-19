@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
 import { Button, TextField } from "@material-ui/core";
-
 import responsive from 'FRS/components/responsive.jsx'
 
 @responsive
