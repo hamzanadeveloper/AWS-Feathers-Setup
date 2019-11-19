@@ -18,6 +18,10 @@ export default class SendSMS extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({phone: nextProps.messagesAddress})
+    }
+
     handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
 
     handleSMSChange = (field, value) => this.setState({ [field]: value })

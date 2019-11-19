@@ -18,6 +18,7 @@ export default class LandingPage extends Component {
             isAuthenticated: true,
             isLoading: true,
             redirect: false,
+            messagesAddress: '',
             snackBarOpen: false,
             snackBarMessage: null
         }
@@ -32,6 +33,10 @@ export default class LandingPage extends Component {
                     snackBarMessage: 'Login failed, please check your email and/or password'
                 })
             )
+    }
+
+    getPropsFromChild = (messagesAddress) => {
+        this.setState({messagesAddress})
     }
 
     handleCloseSnackBar = () => this.setState({ snackBarOpen: false })
@@ -57,7 +62,7 @@ export default class LandingPage extends Component {
 
     render() {
         const { onMobile } = this.props
-        const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage, redirect } = this.state
+        const { isAuthenticated, isLoading, snackBarOpen, snackBarMessage, redirect, messagesAddress } = this.state
 
         const textStyle = {
             fontFamily: 'Roboto, Arial, Helvetica, sans-serif',
@@ -125,7 +130,7 @@ export default class LandingPage extends Component {
                         </div>
                         :
                         <div style={{ ...textStyle, margin: '60px auto', textAlign: 'center', position: 'relative' }}>
-                            <SendSMS />
+                            <SendSMS messagesAddress={messagesAddress}/>
                             <SendEmail />
                         </div>
 
@@ -160,7 +165,7 @@ export default class LandingPage extends Component {
                             </div>
                             :
                             <div style={{ ...textStyle, margin: '10px auto', textAlign: 'center', position: 'relative' }}>
-                                <Messages />
+                                <Messages getPropsFromChild={this.getPropsFromChild} />
                             </div>
                         }
                     </Paper>

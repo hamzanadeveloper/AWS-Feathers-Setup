@@ -67,7 +67,10 @@ export default class SendSMS extends Component {
                                     <TableCell component="th" scope="row">
                                         {message.body}
                                     </TableCell>
-                                    <TableCell align="right">{message.address}</TableCell>
+                                    <TableCell align="right"
+                                               onClick={() => this.props.getPropsFromChild(message.address)}
+                                               style={{color: '#303f9f', cursor: 'pointer'}}
+                                    >{message.address}</TableCell>
                                     <TableCell align="right">{formatDistance(new Date(message.createdAt), new Date())} ago</TableCell>
                                 </TableRow>
                             ))}
