@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 import Login from 'FRS/components/login.jsx'
-import Registration from 'FRS/components/registration.jsx'
+// import Registration from 'FRS/components/registration.jsx'
 
 @responsive
 export default class LandingPage extends Component {
@@ -83,7 +83,7 @@ export default class LandingPage extends Component {
                     style={{
                         padding: onMobile ? 10 : 20,
                         position: 'relative',
-                        minHeight: 500,
+                        minHeight: 400,
                         ...onMobile ? { height: '100%', width: '100%', overflow: 'scroll' } : { width: 500 }
                     }}
                 >
@@ -97,7 +97,7 @@ export default class LandingPage extends Component {
                             marginBottom: onMobile ? 10 : 40,
                         }}
                     >
-                        Project Name
+                        AWS Pinpoint and Feathers
                     </div>
                     {isLoading
                         ? <div style={{ position: 'fixed', right: 'calc(50vw - 22px)', top: 'calc(50vh - 22px)' }}>
@@ -109,13 +109,13 @@ export default class LandingPage extends Component {
                                 Already have an account?
                             </div>
                             <Login authenticate={this.authenticate} />
-                            <div  style={{ ...textStyle, margin: '30px auto', textAlign: 'center' }}>
-                                OR
-                            </div>
-                            <div  style={{ ...textStyle, fontSize: 16, padding: '0 20px' }}>
-                                Register as a new user
-                            </div>
-                            <Registration authenticate={this.authenticate} />
+                            {/*<div  style={{ ...textStyle, margin: '30px auto', textAlign: 'center' }}>*/}
+                                {/*OR*/}
+                            {/*</div>*/}
+                            {/*<div  style={{ ...textStyle, fontSize: 16, padding: '0 20px' }}>*/}
+                                {/*Register as a new user*/}
+                            {/*</div>*/}
+                            {/*<Registration authenticate={this.authenticate} />*/}
                         </div>
                     }
                 </Paper>
