@@ -21,9 +21,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PersonIcon from '@material-ui/icons/Person';
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 
 import app from 'FRS/feathers-client.js'
 
@@ -32,6 +34,9 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
+    },
+    list: {
+        width: '100%',
     },
     button: {
         margin: theme.spacing(1),
@@ -188,6 +193,9 @@ export default function Dashboard() {
                     <Button onClick={handleDialogOpen} color="secondary" variant="contained" className={classes.button}>
                         Add User
                     </Button>
+                    <Button onClick={() => console.log(messageHistory)} color="secondary" variant="contained" className={classes.button}>
+                       Check
+                    </Button>
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -218,22 +226,47 @@ export default function Dashboard() {
                         )}
                     </div>
                 <Divider />
-                {/*<List>{secondaryListItems}</List>*/}
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                        {/* Chat */}
                         <Grid item xs={12} md={12} lg={12}>
                             <Paper  style={{height: "73vh"}} className={fixedHeightPaper}>
-                                {/*<Chart />*/}
+                                <List className={classes.list}>
+                                    {messageHistory.map(message => (
+                                        <div>
+                                            <ListItem alignItems="flex-start">
+                                                <ListItemAvatar>
+                                                    <PersonIcon />
+                                                </ListItemAvatar>
+                                                <ListItemText
+                                                    primary={currentRecipient}
+                                                    secondary={
+                                                        <React.Fragment>
+                                                            <Typography
+                                                                component="span"
+                                                                variant="body2"
+                                                                className={classes.inline}
+                                                                color="textPrimary"
+                                                            >
+                                                                Ali Connors
+                                                            </Typography>
+                                                            {" — I'll be in your neighborhood doing errands this…"}
+                                                        </React.Fragment>
+                                                    }
+                                                />
+                                            </ListItem>
+                                            <Divider />
+                                        </div>
+                                        )
+                                    )}
+                                </List>
                             </Paper>
                         </Grid>
                         {/* Send Message */}
                         <Grid item xs={12} md={12} lg={12}>
                             <Paper style={{height: '8vh'}} className={classes.paper}>
-                                {/*<Orders />*/}
                             </Paper>
                         </Grid>
                     </Grid>
