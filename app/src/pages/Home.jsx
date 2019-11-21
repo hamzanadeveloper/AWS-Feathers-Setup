@@ -123,7 +123,7 @@ export default function Dashboard() {
     const [newName, setUserName] = useState('');
     const [newPhone, setUserPhone] = useState('');
     const [recipients, setRecipients] = useState([]);
-    const [currentRecipient, setCurrRecipient] = useState('');
+    const [currentRecipient, setCurrRecipient] = useState({});
     const [messageHistory, setMessageHistory] = useState([])
 
     useEffect(() => {
@@ -162,7 +162,7 @@ export default function Dashboard() {
 
     const getRecipientRecords = (phone, name) => {
         setMessageHistory([])
-        setCurrRecipient(name)
+        setCurrRecipient({phone, name})
         app.service('notifications').find({ query: { address: phone}})
             .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
             .then(() => {
@@ -189,7 +189,7 @@ export default function Dashboard() {
                         <MenuIcon />
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        {currentRecipient}
+                        {currentRecipient.name}
                     </Typography>
                     <Button onClick={handleDialogOpen} color="secondary" variant="contained" className={classes.button}>
                         Add User
@@ -244,7 +244,7 @@ export default function Dashboard() {
                                                     </ListItemAvatar>
                                                     <ListItemText
                                                         style={{float: 'right'}}
-                                                        primary={currentRecipient}
+                                                        primary={currentRecipient.name}
                                                         secondary={
                                                             <React.Fragment>
                                                                 <Typography
