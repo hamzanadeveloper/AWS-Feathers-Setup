@@ -243,88 +243,110 @@ export default function Dashboard() {
                     </div>
                 <Divider />
             </Drawer>
-            <main className={classes.content}>
-                <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} md={12} lg={12}>
-                            <Paper  style={{height: "73vh"}} className={fixedHeightPaper}>
-                                <List className={classes.list}>
-                                    {messageHistory.sort((a,b) => new Date(a.createdAt) - new Date(b.createdAt)).map(message => (
-                                        message.originationNumber ?
-                                            <div>
-                                                <ListItem alignItems="flex-start">
-                                                    <ListItemAvatar>
-                                                        <PersonIcon fontSize="large" style={{marginTop: '5px'}} />
-                                                    </ListItemAvatar>
-                                                    <ListItemText
-                                                        style={{float: 'right'}}
-                                                        primary={currentRecipient.name}
-                                                        secondary={
-                                                            <React.Fragment>
-                                                                <Typography
-                                                                    component="span"
-                                                                    variant="body2"
-                                                                    className={classes.inline}
-                                                                    color="textPrimary"
-                                                                >
-                                                                </Typography>
-                                                                {message.messageBody}
-                                                            </React.Fragment>
-                                                        }
-                                                    />
-                                                </ListItem>
-                                                <Divider />
-                                            </div>
-                                            :
-                                            <div style={{flexDirection: 'row-reverse'}}>
-                                                <ListItem alignItems="flex-start" >
-                                                    <ListItemText
-                                                        style={{textAlign: 'right', paddingRight: '20px'}}
-                                                        primary="Insight"
-                                                        secondary={
-                                                            <React.Fragment>
-                                                                <Typography
-                                                                    component="span"
-                                                                    variant="body2"
-                                                                    className={classes.inline}
-                                                                    color="textPrimary"
-                                                                >
-                                                                </Typography>
-                                                                {message.body}
-                                                            </React.Fragment>
-                                                        }
-                                                    />
-                                                    <ListItemAvatar>
-                                                        <PersonIcon fontSize="large" style={{marginTop: '5px'}} />
-                                                    </ListItemAvatar>
-                                                </ListItem>
-                                                <Divider />
-                                            </div>
-                                        )
-                                    )}
-                                </List>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={12} md={12} lg={12}>
-                            <Paper style={{height: '8vh'}} className={classes.paper}>
-                                <TextField
-                                    margin="dense"
-                                    id="name"
-                                    onChange={(event) => setMessage(event.target.value)}
-                                    label="Message"
-                                    variant="outlined"
-                                    value={newMessage}
-                                    fullWidth
-                                />
-                                <Button onClick={sendNotification} color="secondary" variant="contained" className={classes.button}>
-                                    Send
-                                </Button>
-                            </Paper>
-                        </Grid>
-                    </Grid>
-                </Container>
-            </main>
+                <main className={classes.content}>
+                    <div className={classes.appBarSpacer} />
+                    <Container maxWidth="lg" className={classes.container}>
+
+                        {currentRecipient.name ?
+
+                            <Grid container spacing={3}>
+                                <Grid item xs={12} md={12} lg={12}>
+                                    <Paper style={{height: "73vh"}} className={fixedHeightPaper}>
+                                        <List className={classes.list}>
+                                            {messageHistory.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).map(message => (
+                                                    message.originationNumber ?
+                                                        <div>
+                                                            <ListItem alignItems="flex-start">
+                                                                <ListItemAvatar>
+                                                                    <PersonIcon fontSize="large"
+                                                                                style={{marginTop: '5px'}}/>
+                                                                </ListItemAvatar>
+                                                                <ListItemText
+                                                                    style={{float: 'right'}}
+                                                                    primary={currentRecipient.name}
+                                                                    secondary={
+                                                                        <React.Fragment>
+                                                                            <Typography
+                                                                                component="span"
+                                                                                variant="body2"
+                                                                                className={classes.inline}
+                                                                                color="textPrimary"
+                                                                            >
+                                                                            </Typography>
+                                                                            {message.messageBody}
+                                                                        </React.Fragment>
+                                                                    }
+                                                                />
+                                                            </ListItem>
+                                                            <Divider/>
+                                                        </div>
+                                                        :
+                                                        <div style={{flexDirection: 'row-reverse'}}>
+                                                            <ListItem alignItems="flex-start">
+                                                                <ListItemText
+                                                                    style={{textAlign: 'right', paddingRight: '20px'}}
+                                                                    primary="Insight"
+                                                                    secondary={
+                                                                        <React.Fragment>
+                                                                            <Typography
+                                                                                component="span"
+                                                                                variant="body2"
+                                                                                className={classes.inline}
+                                                                                color="textPrimary"
+                                                                            >
+                                                                            </Typography>
+                                                                            {message.body}
+                                                                        </React.Fragment>
+                                                                    }
+                                                                />
+                                                                <ListItemAvatar>
+                                                                    <PersonIcon fontSize="large"
+                                                                                style={{marginTop: '5px'}}/>
+                                                                </ListItemAvatar>
+                                                            </ListItem>
+                                                            <Divider/>
+                                                        </div>
+                                                )
+                                            )}
+                                        </List>
+                                    </Paper>
+                                </Grid>
+                                <Grid item xs={12} md={12} lg={12}>
+                                    <Paper style={{height: '8vh'}} className={classes.paper}>
+                                        <TextField
+                                            margin="dense"
+                                            id="name"
+                                            onChange={(event) => setMessage(event.target.value)}
+                                            label="Message"
+                                            variant="outlined"
+                                            value={newMessage}
+                                            fullWidth
+                                        />
+                                        <Button onClick={sendNotification} color="secondary" variant="contained"
+                                                className={classes.button}>
+                                            Send
+                                        </Button>
+                                    </Paper>
+                                </Grid>
+                            </Grid>
+                            :
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    left: '50%',
+                                    top: '35%',
+                                    color: 'white',
+                                    fontSize: '21px'
+                                }}
+                            >Select or Create a Recipient!</div>
+                        }
+                    </Container>
+                </main>
+
+
+
+            }
+
 
             <Dialog open={dialogOpen} onClose={handleDialogClose} aria-labelledby="form-dialog-title" >
                 <DialogTitle id="form-dialog-title">Create Recipient</DialogTitle>
