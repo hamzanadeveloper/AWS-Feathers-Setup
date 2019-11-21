@@ -243,6 +243,7 @@ export default function Dashboard() {
                                                         <PersonIcon fontSize="large" style={{marginTop: '5px'}} />
                                                     </ListItemAvatar>
                                                     <ListItemText
+                                                        style={{float: 'right'}}
                                                         primary={currentRecipient}
                                                         secondary={
                                                             <React.Fragment>
@@ -261,13 +262,11 @@ export default function Dashboard() {
                                                 <Divider />
                                             </div>
                                             :
-                                            <div>
-                                                <ListItem alignItems="flex-start">
-                                                    <ListItemAvatar>
-                                                        <PersonIcon fontSize="large" style={{marginTop: '5px'}} />
-                                                    </ListItemAvatar>
+                                            <div style={{flexDirection: 'row-reverse'}}>
+                                                <ListItem alignItems="flex-start" >
                                                     <ListItemText
-                                                        primary={currentRecipient}
+                                                        style={{textAlign: 'right'}}
+                                                        primary="Insight"
                                                         secondary={
                                                             <React.Fragment>
                                                                 <Typography
@@ -277,10 +276,13 @@ export default function Dashboard() {
                                                                     color="textPrimary"
                                                                 >
                                                                 </Typography>
-                                                                {message.messageBody}
+                                                                {message.body}
                                                             </React.Fragment>
                                                         }
                                                     />
+                                                    <ListItemAvatar>
+                                                        <PersonIcon fontSize="large" style={{marginTop: '5px'}} />
+                                                    </ListItemAvatar>
                                                 </ListItem>
                                                 <Divider />
                                             </div>
