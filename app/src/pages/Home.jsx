@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -113,11 +113,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function Dashboard() {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
-    const [dialogOpen, setDialogState] = React.useState(false);
-    const [newName, setUserName] = React.useState('');
-    const [newPhone, setUserPhone] = React.useState('');
-    const [recipients, setRecipients] = React.useState([]);
+    const [open, setOpen] = useState(true);
+    const [dialogOpen, setDialogState] = useState(false);
+    const [newName, setUserName] = useState('');
+    const [newPhone, setUserPhone] = useState('');
+    const [recipients, setRecipients] = useState([]);
+    const [currentRecipient, setCurrRecipient] = useState('');
+    const [messageHistory, setMessageHistory] = useState([])
 
     useEffect(() => {
         app.service('recipients').find()
@@ -153,6 +155,17 @@ export default function Dashboard() {
 
     }
 
+    const getRecipientRecords = (phone, name) => {
+        setCurrRecipient(name);
+        app.service('notifications').find({ query: { address: phone}})
+            .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
+            .then(() => {
+                return app.service('amazon').find({query: {originationNumber: phone}})
+                    .then(response => setMessageHistory(oldArray => [...oldArray, ...response.data]))
+            })
+
+    }
+
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
@@ -170,7 +183,7 @@ export default function Dashboard() {
                         <MenuIcon />
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Recipient Name
+                        {currentRecipient}
                     </Typography>
                     <Button onClick={handleDialogOpen} color="secondary" variant="contained" className={classes.button}>
                         Add User
@@ -195,7 +208,7 @@ export default function Dashboard() {
                 <Divider />
                     <div>
                         {recipients.map(recipient => (
-                            <ListItem button>
+                            <ListItem button onClick={() => getRecipientRecords(recipient.phone, recipient.name)}>
                                 <ListItemIcon>
                                     <PersonIcon />
                                 </ListItemIcon>
