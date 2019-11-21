@@ -25,6 +25,7 @@
     "@material-ui/icons": "^4.4.1",
     "@material-ui/lab": "^4.0.0-alpha.26",
     "aws-amplify": "^1.2.4",
+    "clsx": "^1.0.4",
     "date-fns": "^2.7.0",
     "envalid": "^5.0.0",
     "isomorphic-fetch": "^2.2.1",
