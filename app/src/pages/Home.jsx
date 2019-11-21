@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
     },
     button: {
         margin: theme.spacing(1),
+        marginBottom: '13px'
     },
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
@@ -106,10 +107,12 @@ const useStyles = makeStyles(theme => ({
         paddingBottom: theme.spacing(4),
     },
     paper: {
-        padding: theme.spacing(2),
         display: 'flex',
+        paddingLeft: '10px',
+        paddingRight: '10px',
+        paddingTop: '5px',
         overflow: 'auto',
-        flexDirection: 'column',
+        flexDirection: 'row',
     },
     fixedHeight: {
         height: '80%',
@@ -122,6 +125,7 @@ export default function Dashboard() {
     const [dialogOpen, setDialogState] = useState(false);
     const [newName, setUserName] = useState('');
     const [newPhone, setUserPhone] = useState('');
+    const [newMessage, setMessage] = useState('');
     const [recipients, setRecipients] = useState([]);
     const [currentRecipient, setCurrRecipient] = useState({});
     const [messageHistory, setMessageHistory] = useState([])
@@ -161,15 +165,29 @@ export default function Dashboard() {
     }
 
     const getRecipientRecords = (phone, name) => {
+        setMessage('')
         setMessageHistory([])
         setCurrRecipient({phone, name})
-        app.service('notifications').find({ query: { address: phone}})
+        app.service('notifications').find({ query: { address: phone, $sort: {createdAt: -1}}})
             .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
             .then(() => {
-                return app.service('amazon').find({query: {originationNumber: phone}})
+                return app.service('amazon').find({ query: { originationNumber: phone, $sort: {createdAt: -1}}})
                     .then(response => setMessageHistory(oldArray => [...oldArray, ...response.data]))
             })
 
+    }
+
+    const sendNotification = (event) => {
+        event.preventDefault()
+
+        app.service('notifications').create({ type:'sms', address: currentRecipient.phone, body: newMessage })
+            .then((result) => {
+                setMessageHistory([...messageHistory, result])
+                setMessage("")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -193,9 +211,6 @@ export default function Dashboard() {
                     </Typography>
                     <Button onClick={handleDialogOpen} color="secondary" variant="contained" className={classes.button}>
                         Add User
-                    </Button>
-                    <Button onClick={() => console.log(messageHistory)} color="secondary" variant="contained" className={classes.button}>
-                       Check
                     </Button>
                 </Toolbar>
             </AppBar>
@@ -291,9 +306,20 @@ export default function Dashboard() {
                                 </List>
                             </Paper>
                         </Grid>
-                        {/* Send Message */}
                         <Grid item xs={12} md={12} lg={12}>
                             <Paper style={{height: '8vh'}} className={classes.paper}>
+                                <TextField
+                                    margin="dense"
+                                    id="name"
+                                    onChange={(event) => setMessage(event.target.value)}
+                                    label="Message"
+                                    variant="outlined"
+                                    value={newMessage}
+                                    fullWidth
+                                />
+                                <Button onClick={sendNotification} color="secondary" variant="contained" className={classes.button}>
+                                    Send
+                                </Button>
                             </Paper>
                         </Grid>
                     </Grid>

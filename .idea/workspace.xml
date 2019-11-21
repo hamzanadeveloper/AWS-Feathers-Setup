@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d62ea07-f1cb-4a15-833e-94585b7ee24b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/_index.html" afterDir="false" />
     </list>
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/components/SendSMS.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="68" column="88" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="88" />
+            <state relative-caret-position="611">
+              <caret line="46" column="9" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -40,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="245" column="80" lean-forward="true" selection-start-line="245" selection-start-column="80" selection-end-line="245" selection-end-column="80" />
+            <state relative-caret-position="625">
+              <caret line="186" column="14" lean-forward="true" selection-start-line="186" selection-start-column="14" selection-end-line="186" selection-end-column="14" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -102,9 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>message</find>
-      <find>&lt;SendSMS</find>
-      <find>componentDid</find>
       <find>material</find>
       <find>date-fns</find>
       <find>distance</find>
@@ -126,12 +124,15 @@
       <find>Creat</find>
       <find>setUserPhone</find>
       <find>useState</find>
-      <find>onChang</find>
       <find>map</find>
       <find>getRecipientRecords</find>
       <find>list</find>
       <find>setCurrRecipient</find>
       <find>current</find>
+      <find>onChang</find>
+      <find>() =&gt;</find>
+      <find>(event)</find>
+      <find>addNewRecipient</find>
     </findStrings>
     <replaceStrings>
       <replace>phoneNumber</replace>
@@ -344,7 +345,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105184000" />
+    <option name="totallyTimeSpent" value="107157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -736,16 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/SendSMS.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="68" column="88" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/Messages.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="617">
@@ -756,10 +747,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/SendSMS.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="46" column="9" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="245" column="80" lean-forward="true" selection-start-line="245" selection-start-column="80" selection-end-line="245" selection-end-column="80" />
+        <state relative-caret-position="625">
+          <caret line="186" column="14" lean-forward="true" selection-start-line="186" selection-start-column="14" selection-end-line="186" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
