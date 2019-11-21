@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -20,6 +20,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import PersonIcon from '@material-ui/icons/Person';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import app from 'FRS/feathers-client.js'
 
@@ -113,6 +117,12 @@ export default function Dashboard() {
     const [dialogOpen, setDialogState] = React.useState(false);
     const [newName, setUserName] = React.useState('');
     const [newPhone, setUserPhone] = React.useState('');
+    const [recipients, setRecipients] = React.useState([]);
+
+    useEffect(() => {
+        app.service('recipients').find()
+            .then(users => setRecipients(users.data))
+    })
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -183,7 +193,17 @@ export default function Dashboard() {
                     </IconButton>
                 </div>
                 <Divider />
-                {/*<List>{mainListItems}</List>*/}
+                    <div>
+                        {recipients.map(recipient => (
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <PersonIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={recipient.name} />
+                            </ListItem>
+                            )
+                        )}
+                    </div>
                 <Divider />
                 {/*<List>{secondaryListItems}</List>*/}
             </Drawer>
