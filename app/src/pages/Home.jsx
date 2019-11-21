@@ -235,7 +235,7 @@ export default function Dashboard() {
                         <Grid item xs={12} md={12} lg={12}>
                             <Paper  style={{height: "73vh"}} className={fixedHeightPaper}>
                                 <List className={classes.list}>
-                                    {messageHistory.map(message => (
+                                    {messageHistory.sort((a,b) => new Date(a.createdAt) - new Date(b.createdAt)).map(message => (
                                         message.originationNumber ?
                                             <div>
                                                 <ListItem alignItems="flex-start">
@@ -265,7 +265,7 @@ export default function Dashboard() {
                                             <div style={{flexDirection: 'row-reverse'}}>
                                                 <ListItem alignItems="flex-start" >
                                                     <ListItemText
-                                                        style={{textAlign: 'right'}}
+                                                        style={{textAlign: 'right', paddingRight: '20px'}}
                                                         primary="Insight"
                                                         secondary={
                                                             <React.Fragment>

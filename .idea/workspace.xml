@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="272" column="84" lean-forward="true" selection-start-line="272" selection-start-column="84" selection-end-line="272" selection-end-column="84" />
+            <state relative-caret-position="253">
+              <caret line="237" column="76" selection-start-line="237" selection-start-column="76" selection-end-line="237" selection-end-column="76" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -345,7 +345,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104763000" />
+    <option name="totallyTimeSpent" value="105075000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -759,8 +759,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="272" column="84" lean-forward="true" selection-start-line="272" selection-start-column="84" selection-end-line="272" selection-end-column="84" />
+        <state relative-caret-position="253">
+          <caret line="237" column="76" selection-start-line="237" selection-start-column="76" selection-end-line="237" selection-end-column="76" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
