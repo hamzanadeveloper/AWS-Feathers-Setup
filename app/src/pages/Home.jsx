@@ -161,7 +161,8 @@ export default function Dashboard() {
     }
 
     const getRecipientRecords = (phone, name) => {
-        setCurrRecipient(name);
+        setMessageHistory([])
+        setCurrRecipient(name)
         app.service('notifications').find({ query: { address: phone}})
             .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
             .then(() => {
@@ -235,30 +236,54 @@ export default function Dashboard() {
                             <Paper  style={{height: "73vh"}} className={fixedHeightPaper}>
                                 <List className={classes.list}>
                                     {messageHistory.map(message => (
-                                        <div>
-                                            <ListItem alignItems="flex-start">
-                                                <ListItemAvatar>
-                                                    <PersonIcon />
-                                                </ListItemAvatar>
-                                                <ListItemText
-                                                    primary={currentRecipient}
-                                                    secondary={
-                                                        <React.Fragment>
-                                                            <Typography
-                                                                component="span"
-                                                                variant="body2"
-                                                                className={classes.inline}
-                                                                color="textPrimary"
-                                                            >
-                                                                Ali Connors
-                                                            </Typography>
-                                                            {" — I'll be in your neighborhood doing errands this…"}
-                                                        </React.Fragment>
-                                                    }
-                                                />
-                                            </ListItem>
-                                            <Divider />
-                                        </div>
+                                        message.originationNumber ?
+                                            <div>
+                                                <ListItem alignItems="flex-start">
+                                                    <ListItemAvatar>
+                                                        <PersonIcon fontSize="large" style={{marginTop: '5px'}} />
+                                                    </ListItemAvatar>
+                                                    <ListItemText
+                                                        primary={currentRecipient}
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <Typography
+                                                                    component="span"
+                                                                    variant="body2"
+                                                                    className={classes.inline}
+                                                                    color="textPrimary"
+                                                                >
+                                                                </Typography>
+                                                                {message.messageBody}
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItem>
+                                                <Divider />
+                                            </div>
+                                            :
+                                            <div>
+                                                <ListItem alignItems="flex-start">
+                                                    <ListItemAvatar>
+                                                        <PersonIcon fontSize="large" style={{marginTop: '5px'}} />
+                                                    </ListItemAvatar>
+                                                    <ListItemText
+                                                        primary={currentRecipient}
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <Typography
+                                                                    component="span"
+                                                                    variant="body2"
+                                                                    className={classes.inline}
+                                                                    color="textPrimary"
+                                                                >
+                                                                </Typography>
+                                                                {message.messageBody}
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItem>
+                                                <Divider />
+                                            </div>
                                         )
                                     )}
                                 </List>
