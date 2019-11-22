@@ -124,14 +124,8 @@ export default function Dashboard() {
     const classes = useStyles()
     const [open, setOpen] = useState(true)
     const [newMessage, setMessage] = useState('')
-    const [recipients, setRecipients] = useState([])
     const [currentRecipient, setCurrRecipient] = useState({})
     const [messageHistory, setMessageHistory] = useState([])
-
-    useEffect(() => {
-        app.service('recipients').find()
-            .then(users => setRecipients(users.data))
-    })
 
     const handleDrawerOpen = () => {
         setOpen(true)
@@ -139,19 +133,6 @@ export default function Dashboard() {
 
     const handleDrawerClose = () => {
         setOpen(false)
-    }
-
-    const getRecipientRecords = (phone, name) => {
-        setMessage('')
-        setMessageHistory([])
-        setCurrRecipient({phone, name})
-        app.service('notifications').find({ query: { address: phone, $sort: {createdAt: -1}}})
-            .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
-            .then(() => {
-                return app.service('amazon').find({ query: { originationNumber: phone, $sort: {createdAt: -1}}})
-                    .then(response => setMessageHistory(oldArray => [...oldArray, ...response.data]))
-            })
-
     }
 
     const sendNotification = (event) => {
@@ -167,41 +148,26 @@ export default function Dashboard() {
             })
     }
 
+    const switchToNewRecipient = (phone, name) => {
+        setMessage('')
+        setMessageHistory([])
+        setCurrRecipient({phone, name})
+        app.service('notifications').find({ query: { address: phone, $sort: {createdAt: -1}}})
+            .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
+            .then(() => {
+                return app.service('amazon').find({ query: { originationNumber: phone, $sort: {createdAt: -1}}})
+                    .then(response => setMessageHistory(oldArray => [...oldArray, ...response.data]))
+            })
+    }
+
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
 
     return (
         <div className={classes.root}>
             <CssBaseline />
             <TopBar open={open} handleDrawerOpen={handleDrawerOpen} recipientName={currentRecipient.name}/>
-            <Drawer
-                variant="permanent"
-                classes={{
-                    paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-                }}
-                open={open}
-            >
-                <div className={classes.toolbarIcon}>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Recipients
-                    </Typography>
-                    <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
-                    </IconButton>
-                </div>
-                <Divider />
-                    <div>
-                        {recipients.map(recipient => (
-                            <ListItem button onClick={() => getRecipientRecords(recipient.phone, recipient.name)}>
-                                <ListItemIcon>
-                                    <PersonIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={recipient.name} />
-                            </ListItem>
-                            )
-                        )}
-                    </div>
-                <Divider />
-            </Drawer>
+            <SideDrawer drawerOpen={open} handleDrawerClose={handleDrawerClose} switchToNewRecipient={switchToNewRecipient}/>
+
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer} />
                     <Container maxWidth="lg" className={classes.container}>
@@ -415,4 +381,64 @@ const AddUserDialog = props => {
         </Dialog>
     )
 }
+
+const SideDrawer = props => {
+    const classes = useStyles()
+    const [open, setOpen] = useState(props.drawerOpen)
+    const [recipients, setRecipients] = useState([])
+
+    useEffect(() => {
+        app.service('recipients').find()
+            .then(users => setRecipients(users.data))
+
+        setOpen(props.drawerOpen)
+    }, [props.drawerOpen])
+
+    const getRecipientRecords = (phone, name) => {
+        props.switchToNewRecipient(phone, name)
+    }
+
+    return (
+        <Drawer
+            variant="permanent"
+            classes={{
+                paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+            }}
+            open={open}
+        >
+            <div className={classes.toolbarIcon}>
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                    Recipients
+                </Typography>
+                <IconButton onClick={() => {
+                    setOpen(false)
+                    props.handleDrawerClose()
+                }}>
+                    <ChevronLeftIcon />
+                </IconButton>
+            </div>
+            <Divider />
+            <div>
+                {recipients.map(recipient => (
+                        <ListItem button onClick={() => getRecipientRecords(recipient.phone, recipient.name)}>
+                            <ListItemIcon>
+                                <PersonIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={recipient.name} />
+                        </ListItem>
+                    )
+                )}
+            </div>
+            <Divider />
+        </Drawer>
+    )
+}
+
+const ChatBox = props => {
+
+    return (
+        
+    )
+}
+
 

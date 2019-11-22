@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="365" column="24" selection-start-line="365" selection-start-column="24" selection-end-line="365" selection-end-column="24" />
+            <state relative-caret-position="770">
+              <caret line="439" column="8" selection-start-line="439" selection-start-column="8" selection-end-line="439" selection-end-column="8" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -103,8 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleSMSC</find>
-      <find>4003</find>
       <find>10.212</find>
       <find>18.212.159.10</find>
       <find>18.212</find>
@@ -133,6 +131,8 @@
       <find>setUserPhone</find>
       <find>handleDialogClose</find>
       <find>;</find>
+      <find>switchToNewRecipient</find>
+      <find>handleDrawerClose</find>
     </findStrings>
     <replaceStrings>
       <replace>phoneNumber</replace>
@@ -224,39 +224,6 @@
             <path>
               <item name="hamza-feathers-react-starter" type="b2602c69:ProjectViewProjectNode" />
               <item name="hamza-feathers-react-starter" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hamza-feathers-react-starter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hamza-feathers-react-starter" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hamza-feathers-react-starter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hamza-feathers-react-starter" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hamza-feathers-react-starter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hamza-feathers-react-starter" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hamza-feathers-react-starter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hamza-feathers-react-starter" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="amazon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hamza-feathers-react-starter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hamza-feathers-react-starter" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -278,12 +245,6 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hamza-feathers-react-starter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hamza-feathers-react-starter" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -348,12 +309,12 @@
       <workItem from="1573570558462" duration="511000" />
       <workItem from="1573826750567" duration="25003000" />
       <workItem from="1574261094322" duration="1783000" />
-      <workItem from="1574439503872" duration="1904000" />
+      <workItem from="1574439503872" duration="4014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113663000" />
+    <option name="totallyTimeSpent" value="115773000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -405,9 +366,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/authentication.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/channels.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -759,10 +717,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/main.eeedd10b28e093353607.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17770" selection-start-column="17770" selection-end-column="17770" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="365" column="24" selection-start-line="365" selection-start-column="24" selection-end-line="365" selection-end-column="24" />
+        <state relative-caret-position="770">
+          <caret line="439" column="8" selection-start-line="439" selection-start-column="8" selection-end-line="439" selection-end-column="8" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
