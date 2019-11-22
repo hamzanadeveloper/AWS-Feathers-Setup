@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="344" column="42" selection-start-line="344" selection-start-column="42" selection-end-line="344" selection-end-column="42" />
+            <state relative-caret-position="290">
+              <caret line="365" column="24" selection-start-line="365" selection-start-column="24" selection-end-line="365" selection-end-column="24" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -103,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;</find>
       <find>handleSMSC</find>
       <find>4003</find>
       <find>10.212</find>
@@ -133,6 +132,7 @@
       <find>dialogOpen</find>
       <find>setUserPhone</find>
       <find>handleDialogClose</find>
+      <find>;</find>
     </findStrings>
     <replaceStrings>
       <replace>phoneNumber</replace>
@@ -348,12 +348,12 @@
       <workItem from="1573570558462" duration="511000" />
       <workItem from="1573826750567" duration="25003000" />
       <workItem from="1574261094322" duration="1783000" />
-      <workItem from="1574439503872" duration="796000" />
+      <workItem from="1574439503872" duration="1904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112555000" />
+    <option name="totallyTimeSpent" value="113663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -405,13 +405,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/services/notifications/notifications.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/authentication.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -759,10 +752,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/main.2a8af1c86bc150881a42.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17794" selection-start-column="17794" selection-end-column="17794" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="344" column="42" selection-start-line="344" selection-start-column="42" selection-end-line="344" selection-end-column="42" />
+        <state relative-caret-position="290">
+          <caret line="365" column="24" selection-start-line="365" selection-start-column="24" selection-end-line="365" selection-end-column="24" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

@@ -1,36 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import PersonIcon from '@material-ui/icons/Person';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import React, { useState, useEffect } from 'react'
+import clsx from 'clsx'
+import { makeStyles } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Drawer from '@material-ui/core/Drawer'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+import IconButton from '@material-ui/core/IconButton'
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import MenuIcon from '@material-ui/icons/Menu'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import PersonIcon from '@material-ui/icons/Person'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 
 import app from 'FRS/feathers-client.js'
 // import TopBar from 'FRS/components/TopBar.jsx'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -118,14 +118,14 @@ const useStyles = makeStyles(theme => ({
     fixedHeight: {
         height: '80%',
     },
-}));
+}))
 
 export default function Dashboard() {
-    const classes = useStyles();
-    const [open, setOpen] = useState(true);
-    const [newMessage, setMessage] = useState('');
-    const [recipients, setRecipients] = useState([]);
-    const [currentRecipient, setCurrRecipient] = useState({});
+    const classes = useStyles()
+    const [open, setOpen] = useState(true)
+    const [newMessage, setMessage] = useState('')
+    const [recipients, setRecipients] = useState([])
+    const [currentRecipient, setCurrRecipient] = useState({})
     const [messageHistory, setMessageHistory] = useState([])
 
     useEffect(() => {
@@ -134,12 +134,12 @@ export default function Dashboard() {
     })
 
     const handleDrawerOpen = () => {
-        setOpen(true);
-    };
+        setOpen(true)
+    }
 
     const handleDrawerClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
 
     const getRecipientRecords = (phone, name) => {
         setMessage('')
@@ -167,7 +167,7 @@ export default function Dashboard() {
             })
     }
 
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
 
     return (
         <div className={classes.root}>
@@ -304,38 +304,20 @@ export default function Dashboard() {
                 </main>
             }
         </div>
-    );
+    )
 }
 
 const TopBar = props => {
     const classes = useStyles()
-    const [open, setOpen] = useState(props.open);
-    const [dialogOpen, setDialogState] = useState(false);
-    const [newName, setUserName] = useState('');
-    const [newPhone, setUserPhone] = useState('');
+    const [open, setOpen] = useState(props.open)
+    const [dialogOpen, setDialogState] = useState(false)
 
     useEffect(() => {
-        setOpen(props.open);
-    }, [props.open]);
-
-    const handleDialogOpen = () => {
-        setDialogState(true);
-    };
+        setOpen(props.open)
+    }, [props.open])
 
     const handleDialogClose = () => {
-        setDialogState(false);
-    };
-
-    const addNewRecipient = (event) => {
-        event.preventDefault()
-
-        app.service('recipients').create({ name: newName, phone: newPhone })
-            .then(() => {
-                setUserName("")
-                setUserPhone("")
-                handleDialogClose()
-            })
-            .catch((err) => console.log(err))
+        setDialogState(false)
     }
 
     return (
@@ -358,46 +340,79 @@ const TopBar = props => {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         {props.recipientName}
                     </Typography>
-                    <Button onClick={handleDialogOpen} color="secondary" variant="contained" className={classes.button}>
+                    <Button onClick={() => setDialogState(true)} color="secondary" variant="contained" className={classes.button}>
                         Add User
                     </Button>
                 </Toolbar>
             </AppBar>
-
-            <Dialog open={dialogOpen} onClose={handleDialogClose} aria-labelledby="form-dialog-title" >
-                <DialogTitle id="form-dialog-title">Create Recipient</DialogTitle>
-                <DialogContent style={{minWidth: '500px', }}>
-                    <DialogContentText>
-                        Create recipients that you interact with frequently!
-                    </DialogContentText>
-                    <TextField
-                        margin="normal"
-                        id="name"
-                        onChange={(event) => setUserName(event.target.value)}
-                        label="Name"
-                        variant="outlined"
-                        value={newName}
-                        fullWidth
-                    />
-                    <TextField
-                        margin="normal"
-                        id="phone"
-                        onChange={(event) => setUserPhone(event.target.value)}
-                        label="Phone Number"
-                        variant="outlined"
-                        value={newPhone}
-                        fullWidth
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleDialogClose} color="primary">
-                        Cancel
-                    </Button>
-                    <Button onClick={addNewRecipient} color="primary">
-                        Create
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <AddUserDialog dialogOpen={dialogOpen} handleDialogClose={handleDialogClose}/>
         </div>
-    );
+    )
 }
+
+const AddUserDialog = props => {
+    const [dialogOpen, setDialogState] = useState(props.dialogOpen)
+    const [newName, setUserName] = useState('')
+    const [newPhone, setUserPhone] = useState('')
+
+    useEffect(() => {
+        setDialogState(props.dialogOpen)
+    }, [props.dialogOpen])
+
+    const handleDialogClose = () => {
+        setDialogState(false)
+        props.handleDialogClose()
+        setUserName("")
+        setUserPhone("")
+    }
+
+    const addNewRecipient = (event) => {
+        event.preventDefault()
+
+        app.service('recipients').create({ name: newName, phone: newPhone })
+            .then(() => {
+                setUserName("")
+                setUserPhone("")
+                handleDialogClose()
+            })
+            .catch((err) => console.log(err))
+    }
+
+    return (
+        <Dialog open={dialogOpen} onClose={handleDialogClose} aria-labelledby="form-dialog-title" >
+            <DialogTitle id="form-dialog-title">Create Recipient</DialogTitle>
+            <DialogContent style={{minWidth: '500px' }}>
+                <DialogContentText>
+                    Create recipients that you interact with frequently!
+                </DialogContentText>
+                <TextField
+                    margin="normal"
+                    id="name"
+                    onChange={(event) => setUserName(event.target.value)}
+                    label="Name"
+                    variant="outlined"
+                    value={newName}
+                    fullWidth
+                />
+                <TextField
+                    margin="normal"
+                    id="phone"
+                    onChange={(event) => setUserPhone(event.target.value)}
+                    label="Phone Number"
+                    variant="outlined"
+                    value={newPhone}
+                    fullWidth
+                />
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleDialogClose} color="primary">
+                    Cancel
+                </Button>
+                <Button onClick={addNewRecipient} color="primary">
+                    Create
+                </Button>
+            </DialogActions>
+        </Dialog>
+    )
+}
+
