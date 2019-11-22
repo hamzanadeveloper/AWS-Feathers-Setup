@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import app from 'FRS/feathers-client.js'
 import responsive from 'FRS/components/responsive.jsx'
 import Login from 'FRS/components/login.jsx'
-import Registration from 'FRS/components/registration.jsx'
+// import Registration from 'FRS/components/registration.jsx'
 
 @responsive
 export default class LandingPage extends Component {
@@ -109,13 +109,13 @@ export default class LandingPage extends Component {
                                 Already have an account?
                             </div>
                             <Login authenticate={this.authenticate} />
-                            <div  style={{ ...textStyle, margin: '30px auto', textAlign: 'center' }}>
-                                OR
-                            </div>
-                            <div  style={{ ...textStyle, fontSize: 16, padding: '0 20px' }}>
-                                Register as a new user
-                            </div>
-                            <Registration authenticate={this.authenticate} />
+                            {/*<div  style={{ ...textStyle, margin: '30px auto', textAlign: 'center' }}>*/}
+                                {/*OR*/}
+                            {/*</div>*/}
+                            {/*<div  style={{ ...textStyle, fontSize: 16, padding: '0 20px' }}>*/}
+                                {/*Register as a new user*/}
+                            {/*</div>*/}
+                            {/*<Registration authenticate={this.authenticate} />*/}
                         </div>
                     }
                 </Paper>

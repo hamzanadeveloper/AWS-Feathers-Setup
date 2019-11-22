@@ -12,8 +12,8 @@ services:
     environment:
       - LOG_FORMAT=dev
       - NODE_ENV
-      - SPA_BASE_URL=http://localhost:$APP_PORT
-      - API_BASE_URL=http://localhost:$API_PORT
+      - SPA_BASE_URL=https://insightpoc.ccm.sickkids.ca:$APP_PORT
+      - API_BASE_URL=http://insightpoc.ccm.sickkids.ca:4001
       - INTERNAL_API_BASE_URL=http://api:8000
     ports:
       - "$APP_PORT:8000"
@@ -27,8 +27,8 @@ services:
       - ./api/scripts:/home/node/scripts
       - ./api/static/uploads:/home/node/uploads
     environment:
-      - API_BASE_URL=http://localhost:$API_PORT
-      - APP_BASE_URL=http://localhost:$APP_PORT
+      - API_BASE_URL=http://insightpoc.ccm.sickkids.ca:$API_PORT
+      - APP_BASE_URL=https://insightpoc.ccm.sickkids.ca:$APP_PORT
       - DEBUG=feathers-react-starter:*
       - LOG_FORMAT=dev
       - POSTGRES_DB=project-name
