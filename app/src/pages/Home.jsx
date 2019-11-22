@@ -333,7 +333,8 @@ export default function Dashboard() {
                             <div
                                 style={{
                                     position: 'absolute',
-                                    left: '50%',
+                                    width: '100%',
+                                    textAlign: 'center',
                                     top: '35%',
                                     color: 'white',
                                     fontSize: '21px'
