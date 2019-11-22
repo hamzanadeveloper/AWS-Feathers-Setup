@@ -13,6 +13,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import Avatar from '@material-ui/core/Avatar';
 
 import app from 'FRS/feathers-client.js'
 
@@ -78,8 +79,7 @@ const ChatBox = props => {
                                             <div>
                                                 <ListItem alignItems="flex-start">
                                                     <ListItemAvatar>
-                                                        <PersonIcon fontSize="large"
-                                                                    style={{marginTop: '5px'}}/>
+                                                        <Avatar>{currentRecipient.name.split('')[0].charAt(0)}</Avatar>
                                                     </ListItemAvatar>
                                                     <ListItemText
                                                         style={{float: 'right'}}

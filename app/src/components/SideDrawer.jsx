@@ -3,11 +3,11 @@ import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
+import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import Button from '@material-ui/core/Button'
-import PersonIcon from '@material-ui/icons/Person'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -92,7 +92,7 @@ const SideDrawer = props => {
                 {recipients.map(recipient => (
                         <ListItem button onClick={() => getRecipientRecords(recipient.phone, recipient.name)}>
                             <ListItemIcon>
-                                <PersonIcon />
+                                <Avatar>{recipient.name.split('')[0].charAt(0)}</Avatar>
                             </ListItemIcon>
                             <ListItemText primary={recipient.name} />
                         </ListItem>
