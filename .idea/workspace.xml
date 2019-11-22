@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="439" column="8" selection-start-line="439" selection-start-column="8" selection-end-line="439" selection-end-column="8" />
+            <state relative-caret-position="455">
+              <caret line="430" column="30" lean-forward="true" selection-start-line="430" selection-start-column="30" selection-end-line="430" selection-end-column="30" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -103,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>10.212</find>
       <find>18.212.159.10</find>
       <find>18.212</find>
       <find>localhost</find>
@@ -133,6 +132,7 @@
       <find>;</find>
       <find>switchToNewRecipient</find>
       <find>handleDrawerClose</find>
+      <find>ChatBox</find>
     </findStrings>
     <replaceStrings>
       <replace>phoneNumber</replace>
@@ -309,12 +309,12 @@
       <workItem from="1573570558462" duration="511000" />
       <workItem from="1573826750567" duration="25003000" />
       <workItem from="1574261094322" duration="1783000" />
-      <workItem from="1574439503872" duration="4014000" />
+      <workItem from="1574439503872" duration="6500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115773000" />
+    <option name="totallyTimeSpent" value="118259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -366,13 +366,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/channels.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/models/users.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -724,10 +717,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/main.920539ebaec37d8bbf10.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17732" selection-start-column="17732" selection-end-column="17732" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/Home.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="439" column="8" selection-start-line="439" selection-start-column="8" selection-end-line="439" selection-end-column="8" />
+        <state relative-caret-position="455">
+          <caret line="430" column="30" lean-forward="true" selection-start-line="430" selection-start-column="30" selection-end-line="430" selection-end-column="30" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

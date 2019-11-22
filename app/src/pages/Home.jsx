@@ -123,9 +123,9 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
     const classes = useStyles()
     const [open, setOpen] = useState(true)
-    const [newMessage, setMessage] = useState('')
     const [currentRecipient, setCurrRecipient] = useState({})
     const [messageHistory, setMessageHistory] = useState([])
+    const [newMessage, setMessage] = useState('')
 
     const handleDrawerOpen = () => {
         setOpen(true)
@@ -133,19 +133,6 @@ export default function Dashboard() {
 
     const handleDrawerClose = () => {
         setOpen(false)
-    }
-
-    const sendNotification = (event) => {
-        event.preventDefault()
-
-        app.service('notifications').create({ type:'sms', address: currentRecipient.phone, body: newMessage })
-            .then((result) => {
-                setMessageHistory([...messageHistory, result])
-                setMessage("")
-            })
-            .catch((err) => {
-                console.log(err)
-            })
     }
 
     const switchToNewRecipient = (phone, name) => {
@@ -156,117 +143,24 @@ export default function Dashboard() {
             .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
             .then(() => {
                 return app.service('amazon').find({ query: { originationNumber: phone, $sort: {createdAt: -1}}})
-                    .then(response => setMessageHistory(oldArray => [...oldArray, ...response.data]))
+                    .then(response => setMessageHistory(oldArray => [...oldArray, ...response.data].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))))
             })
     }
-
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
 
     return (
         <div className={classes.root}>
             <CssBaseline />
             <TopBar open={open} handleDrawerOpen={handleDrawerOpen} recipientName={currentRecipient.name}/>
             <SideDrawer drawerOpen={open} handleDrawerClose={handleDrawerClose} switchToNewRecipient={switchToNewRecipient}/>
-
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer} />
-                    <Container maxWidth="lg" className={classes.container}>
 
-                        {currentRecipient.name ?
-
-                            <Grid container spacing={3}>
-                                <Grid item xs={12} md={12} lg={12}>
-                                    <Paper style={{height: "73vh"}} className={fixedHeightPaper}>
-                                        <List className={classes.list}>
-                                            {messageHistory.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).map(message => (
-                                                    message.originationNumber ?
-                                                        <div>
-                                                            <ListItem alignItems="flex-start">
-                                                                <ListItemAvatar>
-                                                                    <PersonIcon fontSize="large"
-                                                                                style={{marginTop: '5px'}}/>
-                                                                </ListItemAvatar>
-                                                                <ListItemText
-                                                                    style={{float: 'right'}}
-                                                                    primary={currentRecipient.name}
-                                                                    secondary={
-                                                                        <React.Fragment>
-                                                                            <Typography
-                                                                                component="span"
-                                                                                variant="body2"
-                                                                                className={classes.inline}
-                                                                                color="textPrimary"
-                                                                            >
-                                                                            </Typography>
-                                                                            {message.messageBody}
-                                                                        </React.Fragment>
-                                                                    }
-                                                                />
-                                                            </ListItem>
-                                                            <Divider/>
-                                                        </div>
-                                                        :
-                                                        <div style={{flexDirection: 'row-reverse'}}>
-                                                            <ListItem alignItems="flex-start">
-                                                                <ListItemText
-                                                                    style={{textAlign: 'right', paddingRight: '20px'}}
-                                                                    primary="Insight"
-                                                                    secondary={
-                                                                        <React.Fragment>
-                                                                            <Typography
-                                                                                component="span"
-                                                                                variant="body2"
-                                                                                className={classes.inline}
-                                                                                color="textPrimary"
-                                                                            >
-                                                                            </Typography>
-                                                                            {message.body}
-                                                                        </React.Fragment>
-                                                                    }
-                                                                />
-                                                                <ListItemAvatar>
-                                                                    <PersonIcon fontSize="large"
-                                                                                style={{marginTop: '5px'}}/>
-                                                                </ListItemAvatar>
-                                                            </ListItem>
-                                                            <Divider/>
-                                                        </div>
-                                                )
-                                            )}
-                                        </List>
-                                    </Paper>
-                                </Grid>
-                                <Grid item xs={12} md={12} lg={12}>
-                                    <Paper style={{height: '8vh'}} className={classes.paper}>
-                                        <TextField
-                                            margin="dense"
-                                            id="name"
-                                            onChange={(event) => setMessage(event.target.value)}
-                                            label="Message"
-                                            variant="outlined"
-                                            value={newMessage}
-                                            fullWidth
-                                        />
-                                        <Button onClick={sendNotification} color="secondary" variant="contained"
-                                                className={classes.button}>
-                                            Send
-                                        </Button>
-                                    </Paper>
-                                </Grid>
-                            </Grid>
-                            :
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    width: '100%',
-                                    textAlign: 'center',
-                                    top: '35%',
-                                    color: 'white',
-                                    fontSize: '21px'
-                                }}
-                            >Select or Create a Recipient!</div>
-                        }
-                    </Container>
+                    <ChatBox
+                        currentRecipient={currentRecipient}
+                        messageHistory={messageHistory}
+                        newMessage={newMessage}
+                        open={open}
+                    />
                 </main>
             }
         </div>
@@ -435,9 +329,127 @@ const SideDrawer = props => {
 }
 
 const ChatBox = props => {
+    const classes = useStyles()
+    const currentRecipient = props.currentRecipient
+    const open = props.open
+    const [messageHistory, setMessageHistory] = useState(props.messageHistory)
+    const [newMessage, setMessage] = useState(props.newMessage)
+
+    useEffect(() => {
+        setMessageHistory(props.messageHistory)
+        setMessage(props.newMessage)
+    }, [props.messageHistory, props.newMessage])
+
+    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
+
+    const sendNotification = (event) => {
+        event.preventDefault()
+
+        app.service('notifications').create({ type:'sms', address: currentRecipient.phone, body: newMessage })
+            .then((result) => {
+                setMessageHistory([...messageHistory, result])
+                setMessage("")
+            })
+            .catch((err) => console.log(err))
+    }
 
     return (
-        
+        <Container maxWidth="lg" className={classes.container}>
+            {currentRecipient.name ?
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper style={{height: "73vh"}} className={fixedHeightPaper}>
+                            <List className={classes.list}>
+                                {messageHistory.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).map(message => (
+                                        message.originationNumber ?
+                                            <div>
+                                                <ListItem alignItems="flex-start">
+                                                    <ListItemAvatar>
+                                                        <PersonIcon fontSize="large"
+                                                                    style={{marginTop: '5px'}}/>
+                                                    </ListItemAvatar>
+                                                    <ListItemText
+                                                        style={{float: 'right'}}
+                                                        primary={currentRecipient.name}
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <Typography
+                                                                    component="span"
+                                                                    variant="body2"
+                                                                    className={classes.inline}
+                                                                    color="textPrimary"
+                                                                >
+                                                                </Typography>
+                                                                {message.messageBody}
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItem>
+                                                <Divider/>
+                                            </div>
+                                            :
+                                            <div style={{flexDirection: 'row-reverse'}}>
+                                                <ListItem alignItems="flex-start">
+                                                    <ListItemText
+                                                        style={{textAlign: 'right', paddingRight: '20px'}}
+                                                        primary="Insight POC"
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <Typography
+                                                                    component="span"
+                                                                    variant="body2"
+                                                                    className={classes.inline}
+                                                                    color="textPrimary"
+                                                                >
+                                                                </Typography>
+                                                                {message.body}
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                    <ListItemAvatar>
+                                                        <PersonIcon fontSize="large"
+                                                                    style={{marginTop: '5px'}}/>
+                                                    </ListItemAvatar>
+                                                </ListItem>
+                                                <Divider/>
+                                            </div>
+                                    )
+                                )}
+                            </List>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper style={{height: '8vh'}} className={classes.paper}>
+                            <TextField
+                                margin="dense"
+                                id="name"
+                                onChange={(event) => setMessage(event.target.value)}
+                                label="Message"
+                                variant="outlined"
+                                value={newMessage}
+                                fullWidth
+                            />
+                            <Button onClick={sendNotification} color="secondary" variant="contained"
+                                    className={classes.button}>
+                                Send
+                            </Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
+                :
+                <div
+                    style={{
+                        position: 'absolute',
+                        width: open ? '77vw' : '92vw',
+                        textAlign: 'center',
+                        top: '35%',
+                        color: 'white',
+                        fontSize: '21px'
+                    }}
+                >Select or Create a Recipient!</div>
+            }
+        </Container>
+
     )
 }
 
