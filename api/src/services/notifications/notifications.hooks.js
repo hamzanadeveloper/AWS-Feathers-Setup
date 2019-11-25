@@ -4,7 +4,7 @@ const sendSESEmail = require('./ses_sendemail.js')
 
 module.exports = {
   before: {
-    all: [],
+    all: [ authenticate('jwt') ],
     find: [],
     get: [],
     create: [
