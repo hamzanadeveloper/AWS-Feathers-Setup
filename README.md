@@ -1,10 +1,43 @@
-# Docker Feathers React and MaterialUI
+# Insight Prototype
 
-Boilerplate code for a simple web app using [Docker](https://www.docker.com/), [FeathersJS](https://feathersjs.com/), [React](https://reactjs.org/), and [MaterialUI](https://material-ui.com/).
+The following is boilerplate code for a simple web application that would allow the user to send 2-way SMS messages or emails to recipients. This is ideal in settings where a clinician would like to contact patients regarding upcoming appointments or surveys. Here are some of the technologies used:
+
+- Frontend: [React](https://reactjs.org/), MaterialUI](https://material-ui.com/), React Router, Webpack.
+- Backend: [FeathersJS](https://feathersjs.com/), [Docker](https://www.docker.com/), Sequelize.
+- AWS: [Pinpoint](https://aws.amazon.com/pinpoint/), [SNS](https://aws.amazon.com/sns/), [SES](https://aws.amazon.com/ses/), [EC2](https://aws.amazon.com/ec2/).
 
 ## Requirements
 
-Download and install the docker community edition.
+Download and install the docker community edition. 
+
+In order to use the following boilerplate code, you have to create an AWS account and properly configure certain services.
+
+![alt text](https://i.stack.imgur.com/3mmXe.png "AWS Pinpoint Architecture")
+
+
+#### AWS - SNS
+
+In 2-way SMS, when your user responds to your SMS, the response is forwarded to Amazon Pinpoint, which can then redirect the message to an Amazon SNS topic. This topic can then send the message to your subscriptions, which include but are not limited to, an HTTP/HTTPS endpoint, AWS Lambda, email, etc. Begin by creating a SNS Topic. Under that topic, add a subscription to the endpoint of your application that will be responsible for receiving and posting responses from your user. SNS will initially send a payload to this endpoint containing a subscription URL, which will be responsible for verifying and activating the endpoint. More information can be found [here](https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html#SendMessageToHttp.subscribe).
+
+#### AWS - Pinpoint
+
+Create an AWS Pinpoint project, and configure it to have SMS and Voice capabilities. Enable the SMS channel for this project, and add an account spending limit. Go into the SMS and Voice settings, and request a long code. A long code is essentially a phone number that will act as the application's SMS origination number. Additionally, set up 2-way SMS for this long code in its settings, and when prompted about selecting an AWS SNS topic, select the topic you previously created.
+
+#### AWS - IAM Users
+
+To use the services you have just created, the application will need a user, with predefined permissions, to use the services. In your security credential settings, create a user with the following permissions: 
+- AmazonSESFullAccess
+- AmazonSNSRole
+- AmazonSNSFullAccess
+- AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction
+You will also need to create a custom policy that allows the user to have full permissions over AWS Pinpoint. 
+
+Upon creation of the user, you will be provided with an access key and a secret key. Store these keys in a safe location.
+
+#### AWS - Code Setup
+
+In the `api/secrets/` folder, add your access key and secret key in their designated locations. In the  `api/src/services/notifications/sns_publishsms.js` file, insert your Pinpoint application ID and your origination number (long code) into their designated variables. 
+
 
 ## Getting started
 
