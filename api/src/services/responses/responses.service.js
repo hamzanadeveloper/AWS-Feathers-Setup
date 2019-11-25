@@ -1,8 +1,8 @@
 // Initializes the `notifications` service on path `/notifications`
-const { Amazon } = require('./amazon.class');
+const { Responses } = require('./responses.class');
 const bodyParser = require("body-parser")
-const createModel = require('../../models/amazon.model');
-const hooks = require('./amazon.hooks');
+const createModel = require('../../models/responses.model');
+const hooks = require('./responses.hooks');
 
 module.exports = function (app) {
   const Model = createModel(app);
@@ -18,10 +18,10 @@ module.exports = function (app) {
   app.use(bodyParser.json({type: "text/plain"}))
 
   // Initialize our service with any options it requires
-  app.use('/amazon', new Amazon(options, app));
+  app.use('/responses', new Responses(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('amazon');
+  const service = app.service('responses');
 
   service.hooks(hooks);
 };

@@ -56,7 +56,7 @@ export default function Dashboard() {
         app.service('notifications').find({ query: { address: phone, $sort: {createdAt: -1}}})
             .then(notifs => setMessageHistory(oldArray => [...oldArray, ...notifs.data]))
             .then(() => {
-                return app.service('amazon').find({ query: { originationNumber: phone, $sort: {createdAt: -1}}})
+                return app.service('responses').find({ query: { originationNumber: phone, $sort: {createdAt: -1}}})
                     .then(response => setMessageHistory(oldArray => [...oldArray, ...response.data].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))))
             })
     }

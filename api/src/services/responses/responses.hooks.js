@@ -1,6 +1,4 @@
 const parseResponseContents = require('./parse-response-contents.js')
-const { iff } = require("feathers-hooks-common")
-
 
 module.exports = {
   before: {

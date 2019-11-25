@@ -5,7 +5,7 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const amazon = sequelizeClient.define('amazon', {
+  const responses = sequelizeClient.define('responses', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -40,10 +40,10 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  amazon.associate = function (models) {
+  responses.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return amazon;
+  return responses;
 };
