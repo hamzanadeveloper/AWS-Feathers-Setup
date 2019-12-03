@@ -2,9 +2,9 @@
 
 The following is boilerplate code for a simple web application that would allow the user to send 2-way SMS messages or emails to recipients. This is ideal in settings where a clinician would like to contact patients regarding upcoming appointments or surveys. Here are some of the technologies used:
 
-- Frontend: [React](https://reactjs.org/), [MaterialUI](https://material-ui.com/), React Router, Webpack.
-- Backend: [FeathersJS](https://feathersjs.com/), [Docker](https://www.docker.com/), Sequelize.
-- AWS: [Pinpoint](https://aws.amazon.com/pinpoint/), [SNS](https://aws.amazon.com/sns/), [SES](https://aws.amazon.com/ses/), [EC2](https://aws.amazon.com/ec2/).
+- Frontend: [React](https://reactjs.org/), [MaterialUI](https://material-ui.com/), React Router, Webpack
+- Backend: [FeathersJS](https://feathersjs.com/), [Docker](https://www.docker.com/), Sequelize
+- AWS: [Pinpoint](https://aws.amazon.com/pinpoint/), [SNS](https://aws.amazon.com/sns/), [SES](https://aws.amazon.com/ses/), [EC2](https://aws.amazon.com/ec2/)
 
 ## Requirements
 
