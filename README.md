@@ -8,7 +8,7 @@ The following is boilerplate code for a simple web application that would allow 
 
 ## Requirements
 
-Download and install the docker community edition. 
+Download and install Docker Community Edition. 
 
 In order to use the following boilerplate code, you have to create an AWS account and properly configure certain services.
 
