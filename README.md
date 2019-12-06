@@ -17,7 +17,7 @@ In order to use the following boilerplate code, you have to create an AWS accoun
 
 #### AWS - SNS
 
-In 2-way SMS, when your user responds to your SMS, the response is forwarded to Amazon Pinpoint, which can then redirect the message to an Amazon SNS topic. This topic can then send the message to your subscriptions, which include but are not limited to, an HTTP/HTTPS endpoint, AWS Lambda, email, etc. Begin by creating a SNS Topic. Under that topic, add a subscription to the endpoint of your application that will be responsible for receiving and posting responses from your user. SNS will initially send a payload to this endpoint containing a subscription URL, which will be responsible for verifying and activating the endpoint. More information can be found [here](https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html#SendMessageToHttp.subscribe).
+In 2-way SMS, when your user responds to your SMS, the response is forwarded to AWS Pinpoint, which can then redirect the message to an Amazon SNS topic. This topic can then send the message to your subscriptions, which include but are not limited to, an HTTP/HTTPS endpoint, AWS Lambda, email, etc. Begin by creating a SNS Topic. Under that topic, add a subscription to the endpoint of your application that will be responsible for receiving and posting responses from your user. SNS will initially send a payload to this endpoint containing a subscription URL, which will be responsible for verifying and activating the endpoint. More information can be found [here](https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html#SendMessageToHttp.subscribe).
 
 #### AWS - Pinpoint
 
